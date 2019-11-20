@@ -67,7 +67,7 @@ ENDPOINT = "https://swapi.co/api"
 
 def get_films(url, params=None):
     """
-    Issues an HTTP GET request to return a list of films retrieved 
+    Issues an HTTP GET request to return a dictionary of films retrieved 
     from the given <url> and <params>.
 
     Parameters:
@@ -75,7 +75,7 @@ def get_films(url, params=None):
         params (dict): optional dictionary of query string args.
 
     Returns:
-        list: list of films
+        films (dict): a dictionary of films
 
     """
     films = requests.get(url, params).json()["results"]
@@ -180,7 +180,15 @@ def filter_properties(film):
 # BEGIN PROBLEM 3 SOLUTION
 def main():
     """
-    Complete the docstring
+    Entry point to program. Calls function get_films with swapi URL to get a dictionary of films <films>. 
+    Calls function filter_properties to create a new record <new_film_records> from <films>.
+    Encode the new record as JSON and write to file.
+
+   Parameters:
+       None
+
+    Returns:
+        None
 
 
     """
@@ -192,6 +200,8 @@ def main():
     # START: WRITE CODE BELOW
     # Use function <filter_properties> to get a record of each film listed in <films>
     # and store them in <new_film_records>
+    for film in films:
+        new_film_records.append(filter_properties(film))
 
     # END: WRITE CODE ABOVE
 
