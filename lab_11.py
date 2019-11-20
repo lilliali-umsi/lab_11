@@ -154,9 +154,9 @@ def filter_properties(film):
     record = {}
     # START: WRITE CODE BELOW
     # Extracts properties listed in <FILM_PROPERTIES> of <film> and stores them into <record>
-    for key, value in film.items():
-        if key in FILM_PROPERTIES:
-            record[key] = value
+    for k, v in film.items():
+        if k in FILM_PROPERTIES:
+            record[k] = v
             
 
 
